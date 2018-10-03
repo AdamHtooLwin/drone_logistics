@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Completed datetime:</strong>
+  <%= @order.completed_datetime %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @order.address %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @order.weight %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @order.customer %>
+</p>
+
+<p>
+  <strong>Staff:</strong>
+  <%= @order.staff %>
+</p>
+
+<p>
+  <strong>Drone:</strong>
+  <%= @order.drone %>
+</p>
+
+<p>
+  <strong>Assigned datetime:</strong>
+  <%= @order.assigned_datetime %>
+</p>
+
+<p>
+  <strong>Shipped datetime:</strong>
+  <%= @order.shipped_datetime %>
+</p>
+
+<p>
+  <strong>Estimated arrival:</strong>
+  <%= @order.estimated_arrival %>
+</p>
+
+<p>
+  <strong>Item weight:</strong>
+  <%= @order.item_weight %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @order.length %>
+</p>
+
+<p>
+  <strong>Breadth:</strong>
+  <%= @order.breadth %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @order.height %>
+</p>
+
+<p>
+  <strong>Estimated value:</strong>
+  <%= @order.estimated_value %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @order.description %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

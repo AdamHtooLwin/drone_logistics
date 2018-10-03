@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  completed_datetime: 2018-10-03 21:02:53
+  address: one
+  status: MyString
+  weight: 1.5
+  customer: one
+  staff: one
+  drone: one
+  assigned_datetime: 2018-10-03 21:02:53
+  shipped_datetime: 2018-10-03 21:02:53
+  estimated_arrival: 2018-10-03 21:02:53
+  item_weight: 1.5
+  length: 1.5
+  breadth: 1.5
+  height: 1.5
+  estimated_value: 1.5
+  description: MyText
+
+two:
+  completed_datetime: 2018-10-03 21:02:53
+  address: two
+  status: MyString
+  weight: 1.5
+  customer: two
+  staff: two
+  drone: two
+  assigned_datetime: 2018-10-03 21:02:53
+  shipped_datetime: 2018-10-03 21:02:53
+  estimated_arrival: 2018-10-03 21:02:53
+  item_weight: 1.5
+  length: 1.5
+  breadth: 1.5
+  height: 1.5
+  estimated_value: 1.5
+  description: MyText
