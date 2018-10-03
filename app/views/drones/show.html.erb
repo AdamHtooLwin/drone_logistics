@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @drone.name %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @drone.status %>
+</p>
+
+<p>
+  <strong>Carrying capacity:</strong>
+  <%= @drone.carrying_capacity %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @drone.price %>
+</p>
+
+<p>
+  <strong>Acquired date:</strong>
+  <%= @drone.acquired_date %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @drone.weight %>
+</p>
+
+<%= link_to 'Edit', edit_drone_path(@drone) %> |
+<%= link_to 'Back', drones_path %>

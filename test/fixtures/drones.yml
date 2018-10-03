@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  status: MyString
+  carrying_capacity: 1.5
+  price: 1.5
+  acquired_date: 2018-10-03
+  weight: 1.5
+
+two:
+  name: MyString
+  status: MyString
+  carrying_capacity: 1.5
+  price: 1.5
+  acquired_date: 2018-10-03
+  weight: 1.5
