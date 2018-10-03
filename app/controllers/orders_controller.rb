@@ -48,6 +48,11 @@ class OrdersController < ApplicationController
     puts params
     puts order_params
     if params[:order].key?("drone_id")
+      drone = Drone.find(params[:order][:drone_id])
+
+      drone.status = "Busy"
+      drone.save()
+
       params[:order][:assigned_datetime] = Time.now
       params[:order][:staff_id] = current_staff.id
       params[:order][:status] = "Confirmed"
