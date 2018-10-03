@@ -45,6 +45,15 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
+    puts params
+    puts order_params
+    if params[:order].key?("drone_id")
+      params[:order][:assigned_datetime] = Time.now
+      params[:order][:staff_id] = current_staff.id
+      params[:order][:status] = "Confirmed"
+      params[:order][:estimated_arrival] = Time.now + 604800
+    end
+
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }

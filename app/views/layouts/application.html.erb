@@ -15,7 +15,15 @@
       Welcome
       <%= current_customer.email %>! Not you?
       <%= link_to "Sign out", destroy_customer_session_path, method: :delete %>
+
+    <% elsif staff_signed_in? %>
+      Welcome
+      <%= current_staff.email %>! Not you?
+      <%= link_to "Sign out", destroy_staff_session_path, method: :delete %>
+
     <% else %>
+      <%= link_to "Staff Sign in", new_staff_session_path %>
+      or
       <%= link_to "Sign up", new_customer_registration_path %>
       or
       <%= link_to "Sign in", new_customer_session_path %>.

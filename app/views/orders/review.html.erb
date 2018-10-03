@@ -1,20 +1,22 @@
+<h1>Editing Order</h1>
+
 <%= form_with(model: order, local: true) do |form| %>
   <% if order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
       <ul>
-      <% order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-<!--  <div class="field">-->
-    <%#= form.label :completed_datetime %>
-    <%#= form.datetime_select :completed_datetime %>
-<!--  </div>-->
+  <!--  <div class="field">-->
+  <%#= form.label :completed_datetime %>
+  <%#= form.datetime_select :completed_datetime %>
+  <!--  </div>-->
 
   <div class="field">
     <%= form.label :address_id %>
@@ -22,54 +24,51 @@
     <%#= form.text_field :address_id %>
   </div>
 
-<!--  <div class="field">-->
-    <%#= form.label :status %>
-    <%#= form.text_field :status %>
-<!--  </div>-->
+  <!--  <div class="field">-->
+  <%#= form.label :status %>
+  <%#= form.text_field :status %>
+  <!--  </div>-->
 
   <div class="field">
     <%= form.label :weight %>
     <%= form.text_field :weight %>
   </div>
 
-<!--  <div class="field">-->
-    <%#= form.label :customer_id %>
-    <%#= form.text_field :customer_id %>
-<!--  </div>-->
+  <!--  <div class="field">-->
+  <%#= form.label :customer_id %>
+  <%#= form.text_field :customer_id %>
+  <!--  </div>-->
 
-<!--  <div class="field">-->
-    <%#= form.label :staff_id %>
-    <%#= form.text_field :staff_id %>
-<!--  </div>-->
+  <!--  <div class="field">-->
+  <%#= form.label :staff_id %>
+  <%#= form.text_field :staff_id %>
+  <!--  </div>-->
 
-  <% if staff_signed_in? %>
   <div class="field">
     <%= form.label :drone_id %>
     <%= form.select :drone_id, options_for_select(Drone.all.map{|s|[s.name, s.id]}) %>
     <%#= form.text_field :drone_id %>
   </div>
 
-  <% end %>
+  <!--  <div class="field">-->
+  <%#= form.label :assigned_datetime %>
+  <%#= form.datetime_select :assigned_datetime %>
+  <!--  </div>-->
 
-<!--  <div class="field">-->
-    <%#= form.label :assigned_datetime %>
-    <%#= form.datetime_select :assigned_datetime %>
-<!--  </div>-->
+  <!--  <div class="field">-->
+  <%#= form.label :shipped_datetime %>
+  <%#= form.datetime_select :shipped_datetime %>
+  <!--  </div>-->
 
-<!--  <div class="field">-->
-    <%#= form.label :shipped_datetime %>
-    <%#= form.datetime_select :shipped_datetime %>
-<!--  </div>-->
+  <!--  <div class="field">-->
+  <%#= form.label :estimated_arrival %>
+  <%#= form.datetime_select :estimated_arrival %>
+  <!--  </div>-->
 
-<!--  <div class="field">-->
-    <%#= form.label :estimated_arrival %>
-    <%#= form.datetime_select :estimated_arrival %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-    <%#= form.label :item_weight %>
-    <%#= form.text_field :item_weight %>
-<!--  </div>-->
+  <!--  <div class="field">-->
+  <%#= form.label :item_weight %>
+  <%#= form.text_field :item_weight %>
+  <!--  </div>-->
 
   <div class="field">
     <%= form.label :length %>
