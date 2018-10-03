@@ -11,60 +11,61 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :completed_datetime %>
-    <%= form.datetime_select :completed_datetime %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :completed_datetime %>
+    <%#= form.datetime_select :completed_datetime %>
+<!--  </div>-->
 
   <div class="field">
     <%= form.label :address_id %>
-    <%= form.text_field :address_id %>
+    <%= form.select :address_id, options_for_select(Address.all.map{|s|[s.street_address + " " + s.road + " " + s.district + " " + s.city, s.id]}) %>
+    <%#= form.text_field :address_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :status %>
+    <%#= form.text_field :status %>
+<!--  </div>-->
 
   <div class="field">
     <%= form.label :weight %>
     <%= form.text_field :weight %>
   </div>
 
-  <div class="field">
-    <%= form.label :customer_id %>
-    <%= form.text_field :customer_id %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :customer_id %>
+    <%#= form.text_field :customer_id %>
+<!--  </div>-->
 
-  <div class="field">
-    <%= form.label :staff_id %>
-    <%= form.text_field :staff_id %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :staff_id %>
+    <%#= form.text_field :staff_id %>
+<!--  </div>-->
 
-  <div class="field">
-    <%= form.label :drone_id %>
-    <%= form.text_field :drone_id %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :drone_id %>
+    <%#= form.text_field :drone_id %>
+<!--  </div>-->
 
-  <div class="field">
-    <%= form.label :assigned_datetime %>
-    <%= form.datetime_select :assigned_datetime %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :assigned_datetime %>
+    <%#= form.datetime_select :assigned_datetime %>
+<!--  </div>-->
 
-  <div class="field">
-    <%= form.label :shipped_datetime %>
-    <%= form.datetime_select :shipped_datetime %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :shipped_datetime %>
+    <%#= form.datetime_select :shipped_datetime %>
+<!--  </div>-->
 
-  <div class="field">
-    <%= form.label :estimated_arrival %>
-    <%= form.datetime_select :estimated_arrival %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :estimated_arrival %>
+    <%#= form.datetime_select :estimated_arrival %>
+<!--  </div>-->
 
-  <div class="field">
-    <%= form.label :item_weight %>
-    <%= form.text_field :item_weight %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :item_weight %>
+    <%#= form.text_field :item_weight %>
+<!--  </div>-->
 
   <div class="field">
     <%= form.label :length %>

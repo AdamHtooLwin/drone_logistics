@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_03_140253) do
+ActiveRecord::Schema.define(version: 2018_10_03_175641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 2018_10_03_140253) do
     t.datetime "assigned_datetime"
     t.datetime "shipped_datetime"
     t.datetime "estimated_arrival"
-    t.float "item_weight"
     t.float "length"
     t.float "breadth"
     t.float "height"

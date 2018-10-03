@@ -15,7 +15,6 @@
       <th>Assigned datetime</th>
       <th>Shipped datetime</th>
       <th>Estimated arrival</th>
-      <th>Item weight</th>
       <th>Length</th>
       <th>Breadth</th>
       <th>Height</th>
@@ -29,16 +28,15 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.completed_datetime %></td>
-        <td><%= order.address %></td>
+        <td><%= order.address.road %> <%= order.address.district %> <%= order.address.city %></td>
         <td><%= order.status %></td>
         <td><%= order.weight %></td>
-        <td><%= order.customer %></td>
+        <td><%= order.customer.email %></td>
         <td><%= order.staff %></td>
         <td><%= order.drone %></td>
         <td><%= order.assigned_datetime %></td>
         <td><%= order.shipped_datetime %></td>
         <td><%= order.estimated_arrival %></td>
-        <td><%= order.item_weight %></td>
         <td><%= order.length %></td>
         <td><%= order.breadth %></td>
         <td><%= order.height %></td>

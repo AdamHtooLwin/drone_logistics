@@ -43,7 +43,8 @@
 
   <div class="field">
     <%= form.label :customer_id %>
-    <%= form.text_field :customer_id %>
+    <%= form.select :customer_id, options_for_select(Customer.all.map{|s|[s.email, s.id]}) %>
+    <%#= form.text_field :customer_id %>
   </div>
 
   <div class="actions">
