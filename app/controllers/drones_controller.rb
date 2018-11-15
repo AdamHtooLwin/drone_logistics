@@ -1,10 +1,13 @@
 class DronesController < ApplicationController
+  require 'riak'
   before_action :set_drone, only: [:show, :edit, :update, :destroy]
 
   # GET /drones
   # GET /drones.json
   def index
     @drones = Drone.all
+
+    @orion = riak_show
   end
 
   # GET /drones/1
@@ -25,6 +28,8 @@ class DronesController < ApplicationController
   # POST /drones.json
   def create
     @drone = Drone.new(drone_params)
+
+    riak_create
 
     respond_to do |format|
       if @drone.save
@@ -71,4 +76,36 @@ class DronesController < ApplicationController
     def drone_params
       params.require(:drone).permit(:name, :status, :carrying_capacity, :price, :acquired_date, :weight)
     end
+
+    def riak_create()
+      client = Riak::Client.new
+
+      drone_data = drone_params
+
+      d_bucket = client.bucket('drone')
+      new_drone = d_bucket.new("#{drone_data[:name]}")
+      new_drone.data = drone_data
+      new_drone.content_type = 'application/json'
+      new_drone.store()
+    end
+
+    def riak_show()
+      client = Riak::Client.new
+      d_bucket = client.bucket('drone')
+      # drone_names = d_bucket.keys
+      # drones_data = []
+      #
+      # for drone_name in drone_names
+      #   drone = d_bucket.get(drone_name)
+      #   drone_data = drone.data
+      #   drones_data.append(drone_data)
+      # end
+
+      drone = d_bucket.get('Gaia')
+
+      drone_data = drone.data
+      return drone_data
+    end
+
+
 end
