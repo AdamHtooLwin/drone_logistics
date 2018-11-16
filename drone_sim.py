@@ -9,33 +9,54 @@ client = riak.RiakClient(pb_port=8087)
 bucket_name = 'logs-{0}'.format(datetime.datetime.now().strftime("%Y-%m-%d"))
 logsBucket = client.bucket(bucket_name)
 
+log1datetime = datetime.datetime.now()
 log1 = {
     'altitude': 50,
     'gps_latitude': 14.076768,
     'gps_longitude': 100.614727,
-    'datetime': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+    'datetime': log1datetime.strftime("%Y-%m-%d %H:%M:%S"),
     'order_id': 1
+}
+
+log1_nested = {
+    'altitude': 50,
+    'gps_latitude': 14.076768,
+    'gps_longitude': 100.614727,
+    'datetime': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+    'order': {
+        'id': 1,
+        'dest_gps_lat': 13.076768,
+        'dest_gps_long': 100.614727,
+        'created_date': '2018-05-15',
+        'customer': {
+            'id': 1,
+            'name': 'John',
+            # etc etc ...
+        }
+    }
 }
 
 print("Flying to next waypoint")
 time.sleep(5)
 
+log2datetime = datetime.datetime.now()
 log2 = {
     'altitude': 50,
     'gps_latitude': 14.076868,
     'gps_longitude': 100.613927,
-    'datetime': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+    'datetime': log2datetime.strftime("%Y-%m-%d %H:%M:%S"),
     'order_id': 1
 }
 
 print("Flying to next waypoint")
 time.sleep(5)
 
+log3datetime = datetime.datetime.now()
 log3 = {
     'altitude': 50,
     'gps_latitude': 14.076768,
     'gps_longitude': 100.613327,
-    'datetime': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+    'datetime': log3datetime.strftime("%Y-%m-%d %H:%M:%S"),
     'order_id': 1
 }
 
@@ -44,9 +65,10 @@ log3 = {
 # Create new bucket on new day
 
 
-key1 = 'Orion-{0}-{1}'.format(log1['datetime'], 1)
-key2 = 'Orion-{0}-{1}'.format(log2['datetime'], 2)
-key3 = 'Orion-{0}-{1}'.format(log3['datetime'], 3)
+key1 = 'Orion-{0}-{1}'.format(log1datetime.strftime("%Y-%m-%d"), 1)
+
+key2 = 'Orion-{0}-{1}'.format(log2datetime.strftime("%Y-%m-%d"), 2)
+key3 = 'Orion-{0}-{1}'.format(log3datetime.strftime("%Y-%m-%d"), 3)
 
 newLog1 = logsBucket.new(key1, data=log1)
 newLog1.store()
