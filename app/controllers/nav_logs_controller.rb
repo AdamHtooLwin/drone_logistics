@@ -1,10 +1,13 @@
 class NavLogsController < ApplicationController
+  require 'riak'
   before_action :set_nav_log, only: [:show, :edit, :update, :destroy]
 
   # GET /nav_logs
   # GET /nav_logs.json
   def index
     @nav_logs = NavLog.all
+
+    @logs = riak_show
   end
 
   # GET /nav_logs/1
@@ -71,4 +74,19 @@ class NavLogsController < ApplicationController
     def nav_log_params
       params.require(:nav_log).permit(:altitude, :gps_latitude, :gps_longitude, :drone_id)
     end
+
+  def riak_show()
+    client = Riak::Client.new
+    l_bucket = client.bucket('logs-2018-11-16')
+    log_names = client.list_keys(l_bucket)
+    logs_data = []
+
+    for log_name in log_names
+      log = l_bucket.get(log_name)
+      log_data = log.data
+      logs_data.append(log_data)
+    end
+
+    return logs_data
+  end
 end

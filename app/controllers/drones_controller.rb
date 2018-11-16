@@ -7,7 +7,7 @@ class DronesController < ApplicationController
   def index
     @drones = Drone.all
 
-    @orion = riak_show
+    @orion,@orions = riak_show
   end
 
   # GET /drones/1
@@ -92,19 +92,19 @@ class DronesController < ApplicationController
     def riak_show()
       client = Riak::Client.new
       d_bucket = client.bucket('drone')
-      # drone_names = d_bucket.keys
-      # drones_data = []
+      drone_names = client.list_keys(d_bucket)
+      drones_data = []
       #
-      # for drone_name in drone_names
-      #   drone = d_bucket.get(drone_name)
-      #   drone_data = drone.data
-      #   drones_data.append(drone_data)
-      # end
+      for drone_name in drone_names
+        drone = d_bucket.get(drone_name)
+        drone_data = drone.data
+        drones_data.append(drone_data)
+      end
 
       drone = d_bucket.get('Gaia')
 
       drone_data = drone.data
-      return drone_data
+      return drone_data, drones_data
     end
 
 

@@ -1,8 +1,17 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Drones</h1>
+<div class="container"><h1>Drones</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -29,23 +38,17 @@
         <td><%= link_to 'Destroy', drone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-
-    <tr>
-      <td><%= @orion["name"] %></td>
-      <td><%= @orion["status"] %></td>
-      <td><%= @orion["carrying_capacity"] %></td>
-      <td><%= @orion["price"] %></td>
-      <td><%= @orion["acquired_date(1i)"] %>-<%= @orion["acquired_date(2i)"] %>-<%= @orion["acquired_date(3i)"] %></td>
-      <td><%= @orion["weight"] %></td>
-    </tr>
-
   </tbody>
 </table>
 
 <br>
+</div>
+
 <hr>
+
+<div class="container">
 <h3>Riak Data</h3>
-<table>
+<table class="table">
   <thead>
   <tr>
     <th>Name</th>
@@ -60,30 +63,35 @@
 
   <tbody>
 
-  <%# @orions.each do |orion| %>
-    <%# if orion? %>
-<!--    <tr>-->
-<!--      <td><%#= orion["name"] %></td>-->
-<!--      <td><%#= orion["status"] %></td>-->
-<!--      <td><%#= orion["carrying_capacity"] %></td>-->
-<!--      <td><%#= orion["price"] %></td>-->
-<!--      <td><%#= orion["acquired_date(1i)"] %>-<%#= orion["acquired_date(2i)"] %>-<%#= orion["acquired_date(3i)"] %></td>-->
-<!--      <td><%#= orion["weight"] %></td>-->
-<!--    </tr>-->
-  <%# end %>
-  <%# end %>
+  <% @orions.each do |orion| %>
+    <tr>
+      <td><%= orion["name"] %></td>
+      <td><%= orion["status"] %></td>
+      <td><%= orion["carrying_capacity"] %></td>
+      <td><%= orion["price"] %></td>
+      <td><%= orion["acquired_date(1i)"] %>-<%= orion["acquired_date(2i)"] %>-<%= orion["acquired_date(3i)"] %></td>
+      <td><%= orion["weight"] %></td>
+    </tr>
+  <% end %>
 
-  <tr>
-    <td><%= @orion["name"] %></td>
-    <td><%= @orion["status"] %></td>
-    <td><%= @orion["carrying_capacity"] %></td>
-    <td><%= @orion["price"] %></td>
-    <td><%= @orion["acquired_date(1i)"] %>-<%= @orion["acquired_date(2i)"] %>-<%= @orion["acquired_date(3i)"] %></td>
-    <td><%= @orion["weight"] %></td>
-  </tr>
+
+<!--  <tr>-->
+<!--    <td><%#= @orion["name"] %></td>-->
+<!--    <td><%#= @orion["status"] %></td>-->
+<!--    <td><%#= @orion["carrying_capacity"] %></td>-->
+<!--    <td><%#= @orion["price"] %></td>-->
+<!--    <td><%#= @orion["acquired_date(1i)"] %>-<%#= @orion["acquired_date(2i)"] %>-<%#= @orion["acquired_date(3i)"] %></td>-->
+<!--    <td><%#= @orion["weight"] %></td>-->
+<!--  </tr>-->
 
   </tbody>
 </table>
-<p><%= @orion %></p>
+
+<h2>Raw JSON</h2>
+<% @orions.each do |orion| %>
+  <p><%= orion %></p>
+<% end %>
+<!--<p><%#= @orion %></p>-->
 
 <%= link_to 'New Drone', new_drone_path %>
+</div>
